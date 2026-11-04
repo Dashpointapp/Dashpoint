@@ -1,625 +1,1228 @@
-SOUBOR: index.html
-
 <!DOCTYPE html>
 <html lang="cs">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-  <title>Dashpoint</title>
-
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-
-    :root {
-      --blue: #2f7de1;
-      --blue-dark: #1f65c1;
-      --text: #111827;
-      --text-light: #667085;
-      --background: #f8fbff;
-      --border: #e7edf5;
-    }
-
-    body {
-      font-family: "Segoe UI", Arial, sans-serif;
-      color: var(--text);
-      background:
-        radial-gradient(circle at 70% 25%, rgba(91, 159, 255, 0.12), transparent 30%),
-        linear-gradient(135deg, #ffffff 0%, #f7faff 100%);
-      min-height: 100vh;
-    }
-
-    .page {
-      max-width: 1400px;
-      width: 90%;
-      margin: auto;
-    }
-
-    /* =========================
-       HEADER
-       ========================= */
-
-    header {
-      height: 105px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-    }
-
-    .logo {
-      display: flex;
-      align-items: center;
-      gap: 14px;
-    }
-
-    .logo-icon {
-      width: 48px;
-      height: 48px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      border-radius: 14px;
-      color: white;
-      font-size: 24px;
-      font-weight: bold;
-      background: linear-gradient(135deg, #2479e8, #65a5ff);
-      box-shadow: 0 8px 20px rgba(47, 125, 225, 0.25);
-    }
-
-    .logo-text h2 {
-      font-size: 24px;
-      line-height: 1.1;
-    }
-
-    .logo-text p {
-      margin-top: 4px;
-      color: var(--text-light);
-      font-size: 13px;
-    }
-
-    .author {
-      color: var(--text-light);
-      font-size: 14px;
-    }
-
-    /* =========================
-       HERO
-       ========================= */
-
-    .hero {
-      min-height: 530px;
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      align-items: center;
-      gap: 80px;
-      padding: 45px 0;
-    }
-
-    .welcome {
-      color: var(--blue);
-      font-weight: 600;
-      letter-spacing: 7px;
-      font-size: 16px;
-      margin-bottom: 22px;
-    }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Dashpoint</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --blue: #1677e8;
+            --blue-dark: #075fc9;
+            --dark: #111827;
+            --text: #526172;
+            --light-blue: #edf6ff;
+            --border: #e5edf6;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: "Segoe UI", Arial, sans-serif;
+            color: var(--dark);
+            background:
+                radial-gradient(circle at 12% 5%, rgba(82, 164, 255, 0.10), transparent 25%),
+                radial-gradient(circle at 90% 25%, rgba(82, 164, 255, 0.10), transparent 30%),
+                linear-gradient(180deg, #ffffff 0%, #f8fbff 100%);
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+
+        .page {
+            width: min(1450px, 92%);
+            margin: auto;
+        }
+
+        /* =====================================================
+           HEADER
+           ===================================================== */
 
-    .hero h1 {
-      font-size: clamp(52px, 6vw, 82px);
-      line-height: 0.95;
-      letter-spacing: -3px;
-      margin-bottom: 26px;
-    }
+        header {
+            height: 90px;
 
-    .hero h2 {
-      font-size: 27px;
-      margin-bottom: 22px;
-      line-height: 1.3;
-    }
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .small-brand {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+
+            font-size: 21px;
+            font-weight: 700;
+        }
 
-    .description {
-      max-width: 610px;
-      font-size: 18px;
-      line-height: 1.7;
-      color: var(--text-light);
-      margin-bottom: 35px;
-    }
+        .small-brand img {
+            width: 38px;
+            height: 38px;
+            object-fit: contain;
+        }
 
-    /* =========================
-       DOWNLOAD BUTTON
-       ========================= */
+        .author {
+            color: #617087;
+            font-size: 14px;
+        }
 
-    .download-button {
-      display: inline-flex;
-      align-items: center;
-      gap: 12px;
 
-      padding: 18px 30px;
+        /* =====================================================
+           HLAVNÍ LOGO A NADPIS
+           ===================================================== */
 
-      color: white;
-      background: linear-gradient(135deg, #347fe0, #256bd0);
+        .hero {
+            text-align: center;
+            padding: 10px 0 20px;
+        }
 
-      text-decoration: none;
-      font-size: 20px;
-      font-weight: 600;
+        .main-logo {
+            width: 110px;
+            height: 110px;
 
-      border-radius: 14px;
+            object-fit: contain;
 
-      box-shadow: 0 12px 30px rgba(47, 125, 225, 0.25);
+            margin-bottom: 10px;
 
-      transition:
-        transform 0.2s ease,
-        box-shadow 0.2s ease;
-    }
+            filter: drop-shadow(0 12px 22px rgba(35, 114, 211, 0.15));
+        }
 
-    .download-button:hover {
-      transform: translateY(-3px);
-      box-shadow: 0 16px 35px rgba(47, 125, 225, 0.35);
-    }
+        .hero h1 {
+            font-size: clamp(50px, 5vw, 72px);
+            line-height: 1;
+            letter-spacing: -2px;
+            margin-bottom: 12px;
+        }
 
-    .download-icon {
-      font-size: 25px;
-    }
+        .hero h2 {
+            font-size: clamp(23px, 2vw, 31px);
+            font-weight: 400;
+            color: #536278;
 
-    .version {
-      margin-top: 16px;
-      color: #7b8798;
-      font-size: 14px;
-    }
+            margin-bottom: 13px;
+        }
 
-    /* =========================
-       APP SCREENSHOT
-       ========================= */
+        .hero-description {
+            max-width: 800px;
+            margin: auto;
 
-    .app-preview {
-      position: relative;
+            color: #58677a;
 
-      display: flex;
-      align-items: center;
-      justify-content: center;
+            font-size: 17px;
+            line-height: 1.6;
+        }
 
-      min-height: 420px;
-    }
 
-    .app-preview::before {
-      content: "";
+        /* =====================================================
+           SLIDESHOW
+           ===================================================== */
 
-      position: absolute;
+        .showcase {
+            position: relative;
 
-      width: 520px;
-      height: 420px;
+            margin-top: 35px;
 
-      border-radius: 45% 55% 60% 40% / 40% 45% 55% 60%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
 
-      background: linear-gradient(
-        135deg,
-        rgba(205, 227, 255, 0.6),
-        rgba(238, 246, 255, 0.25)
-      );
+            min-height: 410px;
+        }
 
-      z-index: -1;
-    }
+        /* modré dekorativní pozadí */
 
-    .app-image {
-      display: block;
+        .showcase::before {
+            content: "";
 
-      width: 100%;
-      max-width: 650px;
-      max-height: 440px;
+            position: absolute;
 
-      object-fit: contain;
+            width: 115%;
+            height: 340px;
 
-      border-radius: 16px;
+            background:
+                radial-gradient(
+                    ellipse at center,
+                    rgba(90, 165, 255, 0.14),
+                    rgba(90, 165, 255, 0.03) 55%,
+                    transparent 75%
+                );
 
-      filter:
-        drop-shadow(0 25px 30px rgba(21, 52, 91, 0.16))
-        drop-shadow(0 5px 8px rgba(21, 52, 91, 0.08));
-    }
+            z-index: -1;
+        }
 
-    /* =========================
-       FEATURES
-       ========================= */
 
-    .features {
-      padding: 70px 0 80px;
+        .carousel {
+            position: relative;
 
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 45px;
+            width: 100%;
+            max-width: 1200px;
+            height: 390px;
 
-      text-align: center;
-    }
+            display: flex;
+            align-items: center;
+            justify-content: center;
 
-    .feature {
-      padding: 10px;
-    }
+            perspective: 1300px;
+        }
 
-    .feature-icon {
-      width: 74px;
-      height: 74px;
+        .slide {
+            position: absolute;
 
-      margin: 0 auto 22px;
+            width: min(650px, 55vw);
 
-      display: flex;
-      align-items: center;
-      justify-content: center;
+            border-radius: 14px;
 
-      border-radius: 50%;
+            overflow: hidden;
 
-      font-size: 30px;
-    }
+            background: white;
 
-    .feature:nth-child(1) .feature-icon {
-      color: #2f78d4;
-      background: #eaf3ff;
-    }
+            box-shadow:
+                0 30px 60px rgba(25, 57, 95, 0.15),
+                0 8px 18px rgba(25, 57, 95, 0.07);
 
-    .feature:nth-child(2) .feature-icon {
-      color: #27936c;
-      background: #e9f8f1;
-    }
+            opacity: 0;
 
-    .feature:nth-child(3) .feature-icon {
-      color: #6e68d9;
-      background: #ededff;
-    }
+            transform:
+                translateX(0)
+                scale(0.7);
 
-    .feature:nth-child(4) .feature-icon {
-      color: #dc5560;
-      background: #fff0f1;
-    }
+            transition:
+                transform 0.55s cubic-bezier(.2,.8,.2,1),
+                opacity 0.55s ease,
+                filter 0.55s ease;
 
-    .feature h3 {
-      font-size: 18px;
-      margin-bottom: 10px;
-    }
+            pointer-events: none;
+        }
 
-    .feature p {
-      color: var(--text-light);
-      font-size: 15px;
-      line-height: 1.55;
-    }
+        .slide img {
+            display: block;
 
-    /* =========================
-       FOOTER
-       ========================= */
+            width: 100%;
+            height: auto;
 
-    footer {
-      border-top: 1px solid var(--border);
-
-      min-height: 100px;
-
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-
-      color: var(--text-light);
-      font-size: 14px;
-    }
-
-    .footer-right {
-      color: #718096;
-      font-style: italic;
-    }
-
-    /* =========================
-       RESPONSIVE
-       ========================= */
-
-    @media (max-width: 1000px) {
-
-      .hero {
-        grid-template-columns: 1fr;
-        gap: 30px;
-      }
-
-      .hero-text {
-        text-align: center;
-      }
-
-      .description {
-        margin-left: auto;
-        margin-right: auto;
-      }
-
-      .app-preview {
-        min-height: 350px;
-      }
-
-      .features {
-        grid-template-columns: repeat(2, 1fr);
-      }
-    }
-
-    @media (max-width: 600px) {
-
-      .page {
-        width: 88%;
-      }
-
-      header {
-        height: 90px;
-      }
-
-      .author {
-        display: none;
-      }
-
-      .hero {
-        padding-top: 20px;
-      }
-
-      .hero h1 {
-        font-size: 48px;
-        letter-spacing: -2px;
-      }
-
-      .hero h2 {
-        font-size: 22px;
-      }
-
-      .description {
-        font-size: 16px;
-      }
-
-      .download-button {
-        font-size: 17px;
-        padding: 16px 23px;
-      }
-
-      .app-preview {
-        min-height: 280px;
-      }
-
-      .app-preview::before {
-        width: 320px;
-        height: 260px;
-      }
-
-      .features {
-        grid-template-columns: 1fr;
-        padding-top: 30px;
-      }
-
-      footer {
-        flex-direction: column;
-        justify-content: center;
-        text-align: center;
-        gap: 8px;
-      }
-    }
-
-  </style>
+            object-fit: contain;
+        }
+
+
+        /* hlavní screenshot */
+
+        .slide.active {
+            opacity: 1;
+
+            transform:
+                translateX(0)
+                scale(1);
+
+            z-index: 3;
+
+            filter: none;
+
+            pointer-events: auto;
+        }
+
+
+        /* screenshot nalevo */
+
+        .slide.prev {
+            opacity: 0.72;
+
+            transform:
+                translateX(-55%)
+                scale(0.78)
+                rotateY(5deg);
+
+            z-index: 2;
+
+            filter: saturate(0.85);
+        }
+
+
+        /* screenshot napravo */
+
+        .slide.next {
+            opacity: 0.72;
+
+            transform:
+                translateX(55%)
+                scale(0.78)
+                rotateY(-5deg);
+
+            z-index: 2;
+
+            filter: saturate(0.85);
+        }
+
+
+        /* =====================================================
+           ŠIPKY SLIDESHOW
+           ===================================================== */
+
+        .carousel-arrow {
+            position: absolute;
+            top: 50%;
+
+            transform: translateY(-50%);
+
+            width: 54px;
+            height: 54px;
+
+            border: none;
+            border-radius: 50%;
+
+            background: rgba(255,255,255,0.95);
+
+            color: #53708c;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            font-size: 32px;
+
+            cursor: pointer;
+
+            box-shadow: 0 8px 25px rgba(30, 70, 110, 0.12);
+
+            transition: 0.2s;
+
+            z-index: 10;
+        }
+
+        .carousel-arrow:hover {
+            background: #ffffff;
+            color: var(--blue);
+
+            transform:
+                translateY(-50%)
+                scale(1.08);
+        }
+
+        .arrow-left {
+            left: 0;
+        }
+
+        .arrow-right {
+            right: 0;
+        }
+
+
+        /* =====================================================
+           TEČKY POD SLIDESHOW
+           ===================================================== */
+
+        .dots {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            gap: 10px;
+
+            margin-top: -2px;
+            margin-bottom: 30px;
+        }
+
+        .dot {
+            width: 11px;
+            height: 11px;
+
+            border: none;
+            border-radius: 50%;
+
+            background: #cbd7e6;
+
+            cursor: pointer;
+
+            transition: 0.2s;
+        }
+
+        .dot.active {
+            background: var(--blue);
+
+            transform: scale(1.15);
+        }
+
+
+        /* =====================================================
+           MODRÉ RUČNÍ POPISKY
+           ===================================================== */
+
+        .note {
+            position: absolute;
+
+            color: #177aff;
+
+            font-size: 18px;
+            line-height: 1.4;
+
+            font-family: "Segoe Print", "Comic Sans MS", cursive;
+
+            transform: rotate(-3deg);
+
+            z-index: 5;
+        }
+
+        .note-left {
+            left: 0;
+            top: 5px;
+
+            text-align: left;
+        }
+
+        .note-right {
+            right: 0;
+            top: -50px;
+
+            text-align: center;
+
+            transform: rotate(-7deg);
+        }
+
+
+        /* =====================================================
+           SPODNÍ 4 BLOKY
+           ===================================================== */
+
+        .features {
+            display: grid;
+
+            grid-template-columns: repeat(4, 1fr);
+
+            gap: 50px;
+
+            margin-top: 25px;
+
+            padding: 20px 0 45px;
+
+            text-align: center;
+        }
+
+        .feature-icon {
+            width: 74px;
+            height: 74px;
+
+            border-radius: 50%;
+
+            margin: 0 auto 16px;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            font-size: 31px;
+        }
+
+        .feature:nth-child(1) .feature-icon {
+            color: #1776df;
+            background: #e7f2ff;
+        }
+
+        .feature:nth-child(2) .feature-icon {
+            color: #18a47c;
+            background: #e2f8f1;
+        }
+
+        .feature:nth-child(3) .feature-icon {
+            color: #7161dc;
+            background: #eeeaff;
+        }
+
+        .feature:nth-child(4) .feature-icon {
+            color: #ef4d57;
+            background: #ffecee;
+        }
+
+        .feature h3 {
+            font-size: 19px;
+            margin-bottom: 7px;
+        }
+
+        .feature p {
+            color: #607086;
+            font-size: 15px;
+            line-height: 1.6;
+        }
+
+
+        /* =====================================================
+           DOWNLOAD
+           ===================================================== */
+
+        .download-section {
+            text-align: center;
+            padding-bottom: 45px;
+        }
+
+        .download-button {
+            display: inline-flex;
+
+            align-items: center;
+            justify-content: center;
+
+            gap: 13px;
+
+            min-width: 360px;
+
+            padding: 20px 34px;
+
+            border-radius: 15px;
+
+            color: white;
+
+            text-decoration: none;
+
+            font-size: 21px;
+            font-weight: 650;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #2185f5,
+                    #0870e7
+                );
+
+            box-shadow:
+                0 16px 35px rgba(22, 119, 232, 0.28);
+
+            transition:
+                transform 0.2s ease,
+                box-shadow 0.2s ease;
+        }
+
+        .download-button:hover {
+            transform: translateY(-3px);
+
+            box-shadow:
+                0 20px 42px rgba(22, 119, 232, 0.36);
+        }
+
+        .download-symbol {
+            font-size: 27px;
+        }
+
+        .version-info {
+            margin-top: 13px;
+
+            color: #66778d;
+
+            font-size: 14px;
+        }
+
+
+        /* =====================================================
+           FOOTER
+           ===================================================== */
+
+        footer {
+            min-height: 95px;
+
+            border-top: 1px solid var(--border);
+
+            display: flex;
+
+            align-items: center;
+            justify-content: space-between;
+
+            color: #66758a;
+
+            font-size: 14px;
+        }
+
+        .footer-message {
+            font-family: "Segoe Print", "Comic Sans MS", cursive;
+            font-style: italic;
+        }
+
+
+        /* =====================================================
+           TABLET
+           ===================================================== */
+
+        @media (max-width: 1000px) {
+
+            .note {
+                display: none;
+            }
+
+            .features {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .carousel {
+                height: 330px;
+            }
+
+            .slide {
+                width: 65vw;
+            }
+
+            .slide.prev {
+                transform:
+                    translateX(-38%)
+                    scale(0.72);
+            }
+
+            .slide.next {
+                transform:
+                    translateX(38%)
+                    scale(0.72);
+            }
+        }
+
+
+        /* =====================================================
+           MOBIL
+           ===================================================== */
+
+        @media (max-width: 650px) {
+
+            .page {
+                width: 90%;
+            }
+
+            header {
+                height: 75px;
+            }
+
+            .author {
+                display: none;
+            }
+
+            .small-brand {
+                font-size: 18px;
+            }
+
+            .small-brand img {
+                width: 31px;
+                height: 31px;
+            }
+
+            .main-logo {
+                width: 82px;
+                height: 82px;
+            }
+
+            .hero h1 {
+                font-size: 47px;
+            }
+
+            .hero h2 {
+                font-size: 22px;
+            }
+
+            .hero-description {
+                font-size: 15px;
+            }
+
+            .showcase {
+                min-height: 280px;
+            }
+
+            .carousel {
+                height: 260px;
+            }
+
+            .slide {
+                width: 82vw;
+            }
+
+            .slide.prev,
+            .slide.next {
+                opacity: 0;
+            }
+
+            .carousel-arrow {
+                width: 43px;
+                height: 43px;
+
+                font-size: 25px;
+            }
+
+            .arrow-left {
+                left: -10px;
+            }
+
+            .arrow-right {
+                right: -10px;
+            }
+
+            .features {
+                grid-template-columns: 1fr;
+
+                gap: 35px;
+            }
+
+            .download-button {
+                min-width: 0;
+                width: 100%;
+
+                font-size: 18px;
+            }
+
+            footer {
+                flex-direction: column;
+
+                justify-content: center;
+
+                gap: 8px;
+
+                text-align: center;
+            }
+        }
+
+    </style>
 </head>
 
 
 <body>
 
-  <div class="page">
+<div class="page">
 
-    <!-- =========================
+
+    <!-- =====================================================
          HEADER
-         ========================= -->
+         ===================================================== -->
 
     <header>
 
-      <div class="logo">
+        <div class="small-brand">
 
-        <div class="logo-icon">
-          D
+            <!-- TVOJE MALÉ LOGO VLEVO NAHOŘE -->
+            <img src="logo.png" alt="Logo">
+
+            <span>Dashpoint</span>
+
         </div>
 
-        <div class="logo-text">
-          <h2>Dashpoint</h2>
-          <p>Jednoduše. Rychle. Přehledně.</p>
+
+        <div class="author">
+            Vytvořil: Michal Medvecký
         </div>
-
-      </div>
-
-      <div class="author">
-        Vytvořil: Michal Medvecký
-      </div>
 
     </header>
 
 
-    <!-- =========================
+
+    <!-- =====================================================
          HLAVNÍ ČÁST
-         ========================= -->
+         ===================================================== -->
 
-    <main>
+    <section class="hero">
 
-      <section class="hero">
 
-        <div class="hero-text">
+        <!-- TVOJE VELKÉ LOGO -->
 
-          <div class="welcome">
-            VÍTEJTE
-          </div>
+        <img
+            src="logo.png"
+            class="main-logo"
+            alt="Dashpoint"
+        >
 
-          <h1>
+
+        <!-- HLAVNÍ NÁZEV -->
+
+        <h1>
             Dashpoint
-          </h1>
-
-          <h2>
-            Praktický nástroj pro jednodušší práci
-          </h2>
-
-          <p class="description">
-            Sem si napiš vlastní krátký popis programu.
-            Ideálně dvě až tři věty, které jednoduše vysvětlí,
-            k čemu Dashpoint slouží.
-          </p>
+        </h1>
 
 
-          <!--
-            ZDE NASTAVÍŠ ODKAZ NA .EXE
+        <!-- TEXT SI ZMĚŇ -->
 
-            Pokud bude například soubor DashpointSetup.exe
-            přímo vedle index.html:
-
-            href="DashpointSetup.exe"
-          -->
-
-          <a
-            class="download-button"
-            href="DashpointSetup.exe"
-            download
-          >
-
-            <span class="download-icon">
-              ↓
-            </span>
-
-            Stáhnout pro Windows
-
-          </a>
+        <h2>
+            Sem si doplním vlastní text
+        </h2>
 
 
-          <div class="version">
-            Verze 1.0.0&nbsp;&nbsp; | &nbsp;&nbsp;Windows 10/11
-          </div>
+        <!-- TEXT SI ZMĚŇ -->
+
+        <p class="hero-description">
+
+            Sem si doplním vlastní popis programu.
+            Tento text může mít klidně dva řádky a jednoduše
+            vysvětlit uživateli, k čemu program slouží.
+
+        </p>
+
+    </section>
+
+
+
+    <!-- =====================================================
+         SLIDESHOW PROGRAMU
+         ===================================================== -->
+
+    <section class="showcase">
+
+
+        <!-- MODRÝ POPISEK VLEVO -->
+
+        <div class="note note-left">
+
+            Sem si doplním<br>
+            vlastní text ↘
 
         </div>
 
 
-        <!-- =========================
-             OBRÁZEK PROGRAMU
-             ========================= -->
+        <!-- MODRÝ POPISEK VPRAVO -->
 
-        <div class="app-preview">
+        <div class="note note-right">
 
-          <!--
-            Sem dej svůj obrázek.
-
-            Musí být například:
-
-            index.html
-            obrazek.jpg
-            DashpointSetup.exe
-
-            ve stejné složce.
-          -->
-
-          <img
-            class="app-image"
-            src="obrazek.jpg"
-            alt="Ukázka programu Dashpoint"
-          >
+            Vlastní text<br>
+            Vlastní text<br>
+            Vlastní text
 
         </div>
 
-      </section>
 
 
-      <!-- =========================
-           SPODNÍ 4 BLOKY
-           ========================= -->
+        <div class="carousel">
 
-      <section class="features">
+
+            <!-- LEVÁ ŠIPKA -->
+
+            <button
+                class="carousel-arrow arrow-left"
+                onclick="previousSlide()"
+                aria-label="Předchozí obrázek"
+            >
+                ‹
+            </button>
+
+
+
+            <!-- =============================================
+                 SCREENSHOT 1
+                 ============================================= -->
+
+            <div class="slide active">
+
+                <img
+                    src="screen1.jpg"
+                    alt="Dashpoint screenshot 1"
+                >
+
+            </div>
+
+
+
+            <!-- =============================================
+                 SCREENSHOT 2
+                 ============================================= -->
+
+            <div class="slide next">
+
+                <img
+                    src="screen2.jpg"
+                    alt="Dashpoint screenshot 2"
+                >
+
+            </div>
+
+
+
+            <!-- =============================================
+                 SCREENSHOT 3
+                 ============================================= -->
+
+            <div class="slide">
+
+                <img
+                    src="screen3.jpg"
+                    alt="Dashpoint screenshot 3"
+                >
+
+            </div>
+
+
+
+            <!-- =============================================
+                 SCREENSHOT 4
+                 Klidně můžeš přidávat další.
+                 ============================================= -->
+
+            <div class="slide prev">
+
+                <img
+                    src="screen4.jpg"
+                    alt="Dashpoint screenshot 4"
+                >
+
+            </div>
+
+
+
+            <!-- PRAVÁ ŠIPKA -->
+
+            <button
+                class="carousel-arrow arrow-right"
+                onclick="nextSlide()"
+                aria-label="Další obrázek"
+            >
+                ›
+            </button>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =====================================================
+         TEČKY POD SLIDESHOW
+         ===================================================== -->
+
+    <div class="dots">
+
+        <button class="dot active" onclick="goToSlide(0)"></button>
+        <button class="dot" onclick="goToSlide(1)"></button>
+        <button class="dot" onclick="goToSlide(2)"></button>
+        <button class="dot" onclick="goToSlide(3)"></button>
+
+    </div>
+
+
+
+    <!-- =====================================================
+         4 SPODNÍ BLOKY
+         ===================================================== -->
+
+    <section class="features">
 
 
         <!-- BLOK 1 -->
 
         <div class="feature">
 
-          <div class="feature-icon">
-            ⚡
-          </div>
+            <div class="feature-icon">
+                ⚡
+            </div>
 
-          <h3>
-            Vlastní nadpis
-          </h3>
+            <h3>
+                Vlastní nadpis
+            </h3>
 
-          <p>
-            Sem si doplníš vlastní text.
-          </p>
+            <p>
+                Sem si doplním vlastní text.
+            </p>
 
         </div>
+
 
 
         <!-- BLOK 2 -->
 
         <div class="feature">
 
-          <div class="feature-icon">
-            ✓
-          </div>
+            <div class="feature-icon">
+                ♟
+            </div>
 
-          <h3>
-            Vlastní nadpis
-          </h3>
+            <h3>
+                Vlastní nadpis
+            </h3>
 
-          <p>
-            Sem si doplníš vlastní text.
-          </p>
+            <p>
+                Sem si doplním vlastní text.
+            </p>
 
         </div>
+
 
 
         <!-- BLOK 3 -->
 
         <div class="feature">
 
-          <div class="feature-icon">
-            ◇
-          </div>
+            <div class="feature-icon">
+                ◇
+            </div>
 
-          <h3>
-            Vlastní nadpis
-          </h3>
+            <h3>
+                Vlastní nadpis
+            </h3>
 
-          <p>
-            Sem si doplníš vlastní text.
-          </p>
+            <p>
+                Sem si doplním vlastní text.
+            </p>
 
         </div>
+
 
 
         <!-- BLOK 4 -->
 
         <div class="feature">
 
-          <div class="feature-icon">
-            ♥
-          </div>
+            <div class="feature-icon">
+                ♥
+            </div>
 
-          <h3>
-            Vlastní nadpis
-          </h3>
+            <h3>
+                Vlastní nadpis
+            </h3>
 
-          <p>
-            Sem si doplníš vlastní text.
-          </p>
+            <p>
+                Sem si doplním vlastní text.
+            </p>
 
         </div>
 
 
-      </section>
-
-    </main>
+    </section>
 
 
-    <!-- =========================
+
+    <!-- =====================================================
+         TLAČÍTKO KE STAŽENÍ
+         ===================================================== -->
+
+    <section class="download-section">
+
+
+        <!--
+            SEM DEJ NÁZEV SVÉHO INSTALAČNÍHO .EXE
+        -->
+
+        <a
+            href="DashpointSetup.exe"
+            class="download-button"
+            download
+        >
+
+            <span class="download-symbol">
+                ↓
+            </span>
+
+            <span>
+                Stáhnout Dashpoint
+            </span>
+
+        </a>
+
+
+        <div class="version-info">
+
+            Verze 1.0.0
+            &nbsp;&nbsp; | &nbsp;&nbsp;
+            Windows 10/11
+
+        </div>
+
+
+    </section>
+
+
+
+    <!-- =====================================================
          FOOTER
-         ========================= -->
+         ===================================================== -->
 
     <footer>
 
-      <div>
-        © 2026 Michal Medvecký
-      </div>
+        <div>
+            © 2026 Michal Medvecký
+        </div>
 
-      <div class="footer-right">
-        Děkuji, že používáte Dashpoint!
-      </div>
+
+        <div class="footer-message">
+
+            Sem si můžeš napsat vlastní text :)
+
+        </div>
 
     </footer>
 
-  </div>
+
+</div>
+
+
+
+<!-- =========================================================
+     JAVASCRIPT PRO SLIDESHOW
+     ========================================================= -->
+
+<script>
+
+    let currentSlide = 0;
+
+    const slides = document.querySelectorAll(".slide");
+    const dots = document.querySelectorAll(".dot");
+
+
+    function updateCarousel() {
+
+        const totalSlides = slides.length;
+
+
+        slides.forEach((slide, index) => {
+
+            slide.classList.remove(
+                "active",
+                "prev",
+                "next"
+            );
+
+
+            /*
+             * Hlavní obrázek
+             */
+
+            if (index === currentSlide) {
+
+                slide.classList.add("active");
+
+            }
+
+
+            /*
+             * Obrázek vlevo
+             */
+
+            else if (
+                index ===
+                (currentSlide - 1 + totalSlides) % totalSlides
+            ) {
+
+                slide.classList.add("prev");
+
+            }
+
+
+            /*
+             * Obrázek vpravo
+             */
+
+            else if (
+                index ===
+                (currentSlide + 1) % totalSlides
+            ) {
+
+                slide.classList.add("next");
+
+            }
+
+        });
+
+
+
+        /*
+         * Aktualizace teček
+         */
+
+        dots.forEach((dot, index) => {
+
+            dot.classList.toggle(
+                "active",
+                index === currentSlide
+            );
+
+        });
+
+    }
+
+
+
+    /*
+     * Další screenshot
+     */
+
+    function nextSlide() {
+
+        currentSlide++;
+
+        if (currentSlide >= slides.length) {
+            currentSlide = 0;
+        }
+
+        updateCarousel();
+
+    }
+
+
+
+    /*
+     * Předchozí screenshot
+     */
+
+    function previousSlide() {
+
+        currentSlide--;
+
+        if (currentSlide < 0) {
+            currentSlide = slides.length - 1;
+        }
+
+        updateCarousel();
+
+    }
+
+
+
+    /*
+     * Kliknutí na konkrétní tečku
+     */
+
+    function goToSlide(index) {
+
+        currentSlide = index;
+
+        updateCarousel();
+
+    }
+
+
+
+    /*
+     * AUTOMATICKÉ PŘEPÍNÁNÍ
+
+     * Aktuálně každých 5 sekund.
+     *
+     * Pokud automatické přepínání nechceš,
+     * smaž nebo zakomentuj tento setInterval.
+     */
+
+    setInterval(() => {
+
+        nextSlide();
+
+    }, 5000);
+
+
+
+    /*
+     * Ovládání šipkami na klávesnici
+     */
+
+    document.addEventListener("keydown", function(event) {
+
+        if (event.key === "ArrowRight") {
+            nextSlide();
+        }
+
+        if (event.key === "ArrowLeft") {
+            previousSlide();
+        }
+
+    });
+
+
+
+    /*
+     * První nastavení carouselu
+     */
+
+    updateCarousel();
+
+</script>
+
 
 </body>
 </html>
