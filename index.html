@@ -16,8 +16,6 @@
         :root {
             --blue: #1677e8;
             --blue-dark: #075fc9;
-            --green: #11a878;
-            --green-dark: #079267;
             --dark: #111827;
             --text: #526172;
             --light-blue: #edf6ff;
@@ -44,13 +42,13 @@
             margin: auto;
         }
 
-
         /* =====================================================
            HEADER
            ===================================================== */
 
         header {
             height: 90px;
+
             display: flex;
             align-items: center;
             justify-content: space-between;
@@ -89,8 +87,11 @@
         .main-logo {
             width: 110px;
             height: 110px;
+
             object-fit: contain;
+
             margin-bottom: 10px;
+
             filter: drop-shadow(0 12px 22px rgba(35, 114, 211, 0.15));
         }
 
@@ -105,13 +106,16 @@
             font-size: clamp(23px, 2vw, 31px);
             font-weight: 400;
             color: #536278;
+
             margin-bottom: 13px;
         }
 
         .hero-description {
             max-width: 800px;
             margin: auto;
+
             color: #58677a;
+
             font-size: 17px;
             line-height: 1.6;
         }
@@ -123,15 +127,19 @@
 
         .showcase {
             position: relative;
+
             margin-top: 35px;
+
             display: flex;
             align-items: center;
             justify-content: center;
+
             min-height: 410px;
         }
 
         .showcase::before {
             content: "";
+
             position: absolute;
 
             width: 115%;
@@ -147,6 +155,7 @@
 
             z-index: -1;
         }
+
 
         .carousel {
             position: relative;
@@ -168,7 +177,9 @@
             width: min(650px, 55vw);
 
             border-radius: 14px;
+
             overflow: hidden;
+
             background: white;
 
             box-shadow:
@@ -191,10 +202,15 @@
 
         .slide img {
             display: block;
+
             width: 100%;
             height: auto;
+
             object-fit: contain;
         }
+
+
+        /* hlavní screenshot */
 
         .slide.active {
             opacity: 1;
@@ -204,9 +220,14 @@
                 scale(1);
 
             z-index: 3;
+
             filter: none;
+
             pointer-events: auto;
         }
+
+
+        /* screenshot nalevo */
 
         .slide.prev {
             opacity: 0.72;
@@ -217,8 +238,12 @@
                 rotateY(5deg);
 
             z-index: 2;
+
             filter: saturate(0.85);
         }
+
+
+        /* screenshot napravo */
 
         .slide.next {
             opacity: 0.72;
@@ -229,6 +254,7 @@
                 rotateY(-5deg);
 
             z-index: 2;
+
             filter: saturate(0.85);
         }
 
@@ -250,6 +276,7 @@
             border-radius: 50%;
 
             background: rgba(255,255,255,0.95);
+
             color: #53708c;
 
             display: flex;
@@ -257,6 +284,7 @@
             justify-content: center;
 
             font-size: 32px;
+
             cursor: pointer;
 
             box-shadow: 0 8px 25px rgba(30, 70, 110, 0.12);
@@ -305,6 +333,7 @@
 
             border: none;
             border-radius: 50%;
+
             background: #cbd7e6;
 
             cursor: pointer;
@@ -314,6 +343,7 @@
 
         .dot.active {
             background: var(--blue);
+
             transform: scale(1.15);
         }
 
@@ -340,13 +370,16 @@
         .note-left {
             left: 0;
             top: 5px;
+
             text-align: left;
         }
 
         .note-right {
             right: 0;
             top: -50px;
+
             text-align: center;
+
             transform: rotate(-7deg);
         }
 
@@ -417,281 +450,67 @@
 
 
         /* =====================================================
-           NOVÁ SEKCE PRO STAŽENÍ
+           DOWNLOAD
            ===================================================== */
 
         .download-section {
-            padding: 15px 0 55px;
-        }
-
-        .download-panel {
-            max-width: 1120px;
-            margin: auto;
-
-            background:
-                linear-gradient(
-                    145deg,
-                    rgba(255,255,255,0.92),
-                    rgba(239,247,255,0.92)
-                );
-
-            border: 1px solid #dbe9f8;
-            border-radius: 25px;
-
-            padding: 35px 32px 28px;
-
-            box-shadow:
-                0 20px 60px rgba(31, 88, 150, 0.06);
-        }
-
-        .download-heading {
             text-align: center;
-            margin-bottom: 28px;
+            padding-bottom: 45px;
         }
 
-        .download-heading h2 {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 12px;
+        .download-button {
+            display: inline-flex;
 
-            font-size: 30px;
-            letter-spacing: -0.5px;
-            margin-bottom: 7px;
-        }
-
-        .download-main-icon {
-            color: var(--blue);
-            font-size: 34px;
-            line-height: 1;
-        }
-
-        .download-heading p {
-            color: #64758b;
-            font-size: 16px;
-        }
-
-        .download-options {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 18px;
-        }
-
-        .download-card {
-            background: rgba(255,255,255,0.95);
-
-            border: 1px solid #e0e9f3;
-            border-radius: 17px;
-
-            padding: 25px 24px 20px;
-
-            display: flex;
-            flex-direction: column;
-
-            box-shadow:
-                0 10px 30px rgba(39, 75, 115, 0.06);
-
-            transition:
-                transform 0.25s ease,
-                box-shadow 0.25s ease,
-                border-color 0.25s ease;
-        }
-
-        .download-card:hover {
-            transform: translateY(-4px);
-
-            box-shadow:
-                0 18px 38px rgba(39, 75, 115, 0.11);
-        }
-
-        .download-card.amd:hover {
-            border-color: #bddcff;
-        }
-
-        .download-card.arm:hover {
-            border-color: #afe7d7;
-        }
-
-        .download-card-top {
-            display: flex;
-            align-items: flex-start;
-            gap: 18px;
-            margin-bottom: 20px;
-        }
-
-        .processor-icon {
-            flex: 0 0 auto;
-
-            width: 70px;
-            height: 70px;
-
-            display: flex;
             align-items: center;
             justify-content: center;
 
-            border-radius: 50%;
+            gap: 13px;
 
-            font-size: 35px;
-        }
+            min-width: 360px;
 
-        .amd .processor-icon {
-            color: #1a81e9;
-            background: #e5f2ff;
-        }
+            padding: 20px 34px;
 
-        .arm .processor-icon {
-            color: #12a879;
-            background: #e2f8f0;
-        }
-
-        .download-card-text h3 {
-            font-size: 21px;
-            margin-bottom: 3px;
-        }
-
-        .architecture {
-            display: block;
-            color: #607188;
-            font-size: 15px;
-            font-weight: 600;
-            margin-bottom: 10px;
-        }
-
-        .download-card-text p {
-            color: #607086;
-            font-size: 14px;
-            line-height: 1.55;
-        }
-
-        .architecture-button {
-            width: 100%;
-            min-height: 54px;
-
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 10px;
-
-            border-radius: 11px;
+            border-radius: 15px;
 
             color: white;
+
             text-decoration: none;
 
-            font-size: 17px;
+            font-size: 21px;
             font-weight: 650;
 
-            margin-top: auto;
-
-            transition:
-                transform 0.2s ease,
-                box-shadow 0.2s ease,
-                filter 0.2s ease;
-        }
-
-        .architecture-button:hover {
-            transform: translateY(-2px);
-            filter: brightness(1.04);
-        }
-
-        .amd-button {
             background:
                 linear-gradient(
                     135deg,
-                    #2188fa,
+                    #2185f5,
                     #0870e7
                 );
 
             box-shadow:
-                0 10px 23px rgba(22, 119, 232, 0.25);
+                0 16px 35px rgba(22, 119, 232, 0.28);
+
+            transition:
+                transform 0.2s ease,
+                box-shadow 0.2s ease;
         }
 
-        .arm-button {
-            background:
-                linear-gradient(
-                    135deg,
-                    #10b981,
-                    #079c70
-                );
+        .download-button:hover {
+            transform: translateY(-3px);
 
             box-shadow:
-                0 10px 23px rgba(16, 185, 129, 0.23);
+                0 20px 42px rgba(22, 119, 232, 0.36);
         }
 
-        .button-download-icon {
-            font-size: 24px;
+        .download-symbol {
+            font-size: 27px;
         }
 
         .version-info {
-            margin-top: 15px;
+            margin-top: 13px;
 
             color: #66778d;
 
-            text-align: center;
-
-            font-size: 13px;
-            line-height: 1.5;
-        }
-
-
-        /* =====================================================
-           NÁPOVĚDA PRO VÝBĚR VERZE
-           ===================================================== */
-
-        .download-help {
-            margin-top: 20px;
-
-            display: flex;
-            align-items: flex-start;
-            gap: 15px;
-
-            padding: 17px 19px;
-
-            background:
-                linear-gradient(
-                    135deg,
-                    #edf6ff,
-                    #e8f3ff
-                );
-
-            border: 1px solid #d9eaff;
-            border-radius: 13px;
-        }
-
-        .help-icon {
-            flex: 0 0 auto;
-
-            width: 30px;
-            height: 30px;
-
-            border: 2px solid var(--blue);
-            border-radius: 50%;
-
-            display: flex;
-            align-items: center;
-            justify-content: center;
-
-            color: var(--blue);
-
-            font-size: 18px;
-            font-weight: 700;
-            font-family: Georgia, serif;
-        }
-
-        .help-content strong {
-            display: block;
-
-            color: #1671cd;
-
             font-size: 14px;
-
-            margin-bottom: 5px;
-        }
-
-        .help-content p {
-            color: #5c7189;
-
-            font-size: 13px;
-            line-height: 1.55;
         }
 
 
@@ -705,6 +524,7 @@
             border-top: 1px solid var(--border);
 
             display: flex;
+
             align-items: center;
             justify-content: space-between;
 
@@ -751,10 +571,6 @@
                 transform:
                     translateX(38%)
                     scale(0.72);
-            }
-
-            .download-panel {
-                padding: 30px 22px 25px;
             }
         }
 
@@ -823,6 +639,7 @@
             .carousel-arrow {
                 width: 43px;
                 height: 43px;
+
                 font-size: 25px;
             }
 
@@ -836,61 +653,24 @@
 
             .features {
                 grid-template-columns: 1fr;
+
                 gap: 35px;
             }
 
-            .download-section {
-                padding-top: 5px;
-            }
+            .download-button {
+                min-width: 0;
+                width: 100%;
 
-            .download-panel {
-                padding: 26px 15px 20px;
-                border-radius: 20px;
-            }
-
-            .download-heading h2 {
-                font-size: 25px;
-            }
-
-            .download-heading p {
-                font-size: 14px;
-            }
-
-            .download-options {
-                grid-template-columns: 1fr;
-                gap: 15px;
-            }
-
-            .download-card {
-                padding: 20px 18px 17px;
-            }
-
-            .download-card-top {
-                gap: 14px;
-            }
-
-            .processor-icon {
-                width: 58px;
-                height: 58px;
-                font-size: 29px;
-            }
-
-            .download-card-text h3 {
                 font-size: 18px;
-            }
-
-            .architecture-button {
-                font-size: 15px;
-            }
-
-            .download-help {
-                padding: 15px;
             }
 
             footer {
                 flex-direction: column;
+
                 justify-content: center;
+
                 gap: 8px;
+
                 text-align: center;
             }
         }
@@ -912,6 +692,7 @@
 
         <div class="small-brand">
 
+            <!-- TVOJE MALÉ LOGO VLEVO NAHOŘE -->
             <img src="logo.png" alt="Logo">
 
             <span>Dashpoint</span>
@@ -933,6 +714,9 @@
 
     <section class="hero">
 
+
+        <!-- TVOJE VELKÉ LOGO -->
+
         <img
             src="logo.png"
             class="main-logo"
@@ -940,15 +724,21 @@
         >
 
 
+        <!-- HLAVNÍ NÁZEV -->
+
         <h1>
             Dashpoint
         </h1>
 
 
+        <!-- TEXT SI ZMĚŇ -->
+
         <h2>
             Sem si doplním vlastní text
         </h2>
 
+
+        <!-- TEXT SI ZMĚŇ -->
 
         <p class="hero-description">
 
@@ -969,6 +759,8 @@
     <section class="showcase">
 
 
+        <!-- MODRÝ POPISEK VLEVO -->
+
         <div class="note note-left">
 
             Sem si doplním<br>
@@ -976,6 +768,8 @@
 
         </div>
 
+
+        <!-- MODRÝ POPISEK VPRAVO -->
 
         <div class="note note-right">
 
@@ -989,6 +783,8 @@
 
         <div class="carousel">
 
+
+            <!-- LEVÁ ŠIPKA -->
 
             <button
                 class="carousel-arrow arrow-left"
@@ -1052,6 +848,8 @@
 
 
 
+            <!-- PRAVÁ ŠIPKA -->
+
             <button
                 class="carousel-arrow arrow-right"
                 onclick="nextSlide()"
@@ -1072,10 +870,10 @@
 
     <div class="dots">
 
-        <button class="dot active" onclick="goToSlide(0)" aria-label="Obrázek 1"></button>
-        <button class="dot" onclick="goToSlide(1)" aria-label="Obrázek 2"></button>
-        <button class="dot" onclick="goToSlide(2)" aria-label="Obrázek 3"></button>
-        <button class="dot" onclick="goToSlide(3)" aria-label="Obrázek 4"></button>
+        <button class="dot active" onclick="goToSlide(0)"></button>
+        <button class="dot" onclick="goToSlide(1)"></button>
+        <button class="dot" onclick="goToSlide(2)"></button>
+        <button class="dot" onclick="goToSlide(3)"></button>
 
     </div>
 
@@ -1172,210 +970,45 @@
 
 
     <!-- =====================================================
-         NOVÁ SEKCE STAŽENÍ
+         TLAČÍTKO KE STAŽENÍ
          ===================================================== -->
 
     <section class="download-section">
 
-        <div class="download-panel">
 
+        <!--
+            SEM DEJ NÁZEV SVÉHO INSTALAČNÍHO .EXE
+        -->
 
-            <!-- NADPIS -->
+        <a
+            href="Dashpoint_Setup.exe"
+            class="download-button"
+            download
+        >
 
-            <div class="download-heading">
+            <span class="download-symbol">
+                ↓
+            </span>
 
-                <h2>
-                    <span class="download-main-icon">⇩</span>
-                    Stáhnout Dashpoint
-                </h2>
+            <span>
+                Stáhnout Dashpoint
+            </span>
 
-                <p>
-                    Vyberte verzi podle vašeho procesoru
-                </p>
+        </a>
 
-            </div>
 
+        <div class="version-info">
 
-
-            <!-- =================================================
-                 DVĚ VERZE PROGRAMU
-                 ================================================= -->
-
-            <div class="download-options">
-
-
-                <!-- =============================================
-                     INTEL / AMD
-                     ============================================= -->
-
-                <div class="download-card amd">
-
-                    <div class="download-card-top">
-
-                        <div class="processor-icon">
-                            ▣
-                        </div>
-
-                        <div class="download-card-text">
-
-                            <h3>
-                                Pro Intel / AMD
-                            </h3>
-
-                            <span class="architecture">
-                                (x86/x64)
-                            </span>
-
-                            <p>
-                                Standardní verze pro většinu počítačů
-                                s procesory Intel nebo AMD.
-                                Vhodné pro Windows 10/11.
-                            </p>
-
-                        </div>
-
-                    </div>
-
-
-                    <!--
-                        ZDE JE SOUBOR PRO INTEL / AMD
-
-                        Pokud se soubor jmenuje jinak,
-                        změň pouze href="..."
-                    -->
-
-                    <a
-                        href="Dashpoint_Setup.exe"
-                        class="architecture-button amd-button"
-                        download
-                    >
-
-                        <span class="button-download-icon">
-                            ↓
-                        </span>
-
-                        <span>
-                            Stáhnout (x86/x64)
-                        </span>
-
-                    </a>
-
-
-                    <div class="version-info">
-
-                        Verze 3.3
-                        &nbsp; | &nbsp;
-                        Windows 10/11
-                        &nbsp; | &nbsp;
-                        19.7 MB
-
-                    </div>
-
-                </div>
-
-
-
-                <!-- =============================================
-                     ARM64
-                     ============================================= -->
-
-                <div class="download-card arm">
-
-                    <div class="download-card-top">
-
-                        <div class="processor-icon">
-                            ▣
-                        </div>
-
-                        <div class="download-card-text">
-
-                            <h3>
-                                Pro ARM procesory
-                            </h3>
-
-                            <span class="architecture">
-                                (ARM64)
-                            </span>
-
-                            <p>
-                                Verze optimalizovaná pro zařízení
-                                s ARM procesory, například některé
-                                notebooky a zařízení Surface.
-                            </p>
-
-                        </div>
-
-                    </div>
-
-
-                    <!--
-                        ZDE JE SOUBOR PRO ARM64
-
-                        Pokud se soubor jmenuje jinak,
-                        změň pouze href="..."
-                    -->
-
-                    <a
-                        href="Dashpoint_ARM64_Setup.exe"
-                        class="architecture-button arm-button"
-                        download
-                    >
-
-                        <span class="button-download-icon">
-                            ↓
-                        </span>
-
-                        <span>
-                            Stáhnout (ARM64)
-                        </span>
-
-                    </a>
-
-
-                    <div class="version-info">
-
-                        Verze 3.3
-                        &nbsp; | &nbsp;
-                        Windows 10/11
-                        &nbsp; | &nbsp;
-                        18.9 MB
-
-                    </div>
-
-                </div>
-
-            </div>
-
-
-
-            <!-- =================================================
-                 NÁPOVĚDA
-                 ================================================= -->
-
-            <div class="download-help">
-
-                <div class="help-icon">
-                    i
-                </div>
-
-                <div class="help-content">
-
-                    <strong>
-                        Nevíte, jakou verzi zvolit?
-                    </strong>
-
-                    <p>
-                        Většina uživatelů má procesor Intel nebo AMD.
-                        ARM verzi použijte pouze v případě, že máte
-                        zařízení s ARM procesorem.
-                    </p>
-
-                </div>
-
-            </div>
-
+            Verze 3.3
+            &nbsp;&nbsp; | &nbsp;&nbsp;
+            Windows 10/11
+            &nbsp;&nbsp; | &nbsp;&nbsp;
+            Intel / AMD / ARM
+            &nbsp;&nbsp; | &nbsp;&nbsp;
+            19.7 MB
 
         </div>
+
 
     </section>
 
@@ -1431,11 +1064,20 @@
             );
 
 
+            /*
+             * Hlavní obrázek
+             */
+
             if (index === currentSlide) {
 
                 slide.classList.add("active");
 
             }
+
+
+            /*
+             * Obrázek vlevo
+             */
 
             else if (
                 index ===
@@ -1445,6 +1087,11 @@
                 slide.classList.add("prev");
 
             }
+
+
+            /*
+             * Obrázek vpravo
+             */
 
             else if (
                 index ===
@@ -1458,6 +1105,10 @@
         });
 
 
+
+        /*
+         * Aktualizace teček
+         */
 
         dots.forEach((dot, index) => {
 
@@ -1473,7 +1124,7 @@
 
 
     /*
-     * DALŠÍ SCREENSHOT
+     * Další screenshot
      */
 
     function nextSlide() {
@@ -1491,7 +1142,7 @@
 
 
     /*
-     * PŘEDCHOZÍ SCREENSHOT
+     * Předchozí screenshot
      */
 
     function previousSlide() {
@@ -1509,7 +1160,7 @@
 
 
     /*
-     * KLIKNUTÍ NA TEČKU
+     * Kliknutí na konkrétní tečku
      */
 
     function goToSlide(index) {
@@ -1524,7 +1175,8 @@
 
     /*
      * AUTOMATICKÉ PŘEPÍNÁNÍ
-     * Každých 5 sekund
+     *
+     * Aktuálně každých 5 sekund.
      */
 
     setInterval(() => {
@@ -1536,7 +1188,7 @@
 
 
     /*
-     * OVLÁDÁNÍ ŠIPKAMI
+     * Ovládání šipkami na klávesnici
      */
 
     document.addEventListener("keydown", function(event) {
@@ -1554,7 +1206,7 @@
 
 
     /*
-     * PRVNÍ NASTAVENÍ
+     * První nastavení carouselu
      */
 
     updateCarousel();
